@@ -1,0 +1,21 @@
+
+.MODEL SMALL
+;definicion del modelo de memoria a usar
+.STACK                              ;definicion del segmento de pila
+
+.DATA                               ;segmento de datos
+
+PORT1    DW  100h
+PORT2    DW  101h
+.CODE
+loop_1:
+MOV     DX,PORT1
+mov al,0xff
+out dx,al
+jmp loop_1
+
+end
+
+
+
+; [SOURCE]: Z:\home\game\Descargas\ARQUITECTURA\AR_COMPUTER\PROTEUS_7\mycode.asm

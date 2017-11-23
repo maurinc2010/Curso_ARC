@@ -1,0 +1,17 @@
+< THE SYMBOL TABLE >  mycode.exe  --  emu8086 assembler version: 4.05 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+STACK                    	00000     	-5        	SEGMENT   	(ITSELF)  
+DATA                     	00010     	-5        	SEGMENT   	(ITSELF)  
+PORT1                    	00000     	2         	VAR       	data      
+PORT2                    	00002     	2         	VAR       	data      
+CODE                     	00011     	-5        	SEGMENT   	(ITSELF)  
+INICIAR                  	00000     	-1        	LABEL     	code      
+DEBUD                    	0000B     	-1        	LABEL     	code      
+DELAY1                   	0001F     	-1        	NEAR      	code      
+CASSS1                   	00024     	-1        	LABEL     	code      
+===================================================================================================
+[ 14/11/2017  --  06:57:06 p.m. ] 
+< END >
+ 

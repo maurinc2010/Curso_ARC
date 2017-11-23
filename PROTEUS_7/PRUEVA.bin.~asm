@@ -1,0 +1,7 @@
+MOV AL,0XF
+out 0xFF,AL
+
+
+
+
+; [SOURCE]: Z:\home\game\Descargas\ARQUITECTURA\AR_COMPUTER\PROTEUS_7\mycode.asm

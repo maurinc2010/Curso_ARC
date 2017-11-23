@@ -1,0 +1,91 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+mycode.exe -- emu8086 assembler version: 4.05  
+ 
+[ 14/11/2017  --  06:57:06 p.m. ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       
+[   2]        :                                       .MODEL SMALL
+[   3]        :                                       ;definicion del modelo de memoria a usar
+[   4]        :                                       .STACK                              ;definicion del segmento de pila
+[   5]        :                                       
+[   6]        :                                       .DATA                               ;segmento de datos
+[   7]        :                                       
+[   8]    0100: 00 01                                 PORT1    DW  100h
+[   9]    0102: 01 01                                 PORT2    DW  101h
+[  10]        :                                       .CODE
+[  11]    0110:                                       INICIAR:
+[  12]    0110: B8 80 00                              MOV     AX,0080h
+[  13]    0113: BA C8 00                              MOV     DX,00C8H
+[  14]    0116: EF                                    out     DX,AX
+[  15]        :                                       ;JMP     INICIAR
+[  16]    0117: B0 00                                 MOV      al,0
+[  17]    0119: B4 00                                 mov      ah,0
+[  18]    011B:                                       debud:
+[  19]    011B: BA 48 00                              MOV     DX,0X48     ; corresponde al puerto b
+[  20]    011E: B0 5B                                 mov     al,0x5b
+[  21]    0120: EE                                    out     DX,al
+[  22]    0121: BA 88 00                              mov     dx,0x88     ; corresponde al puertdo c
+[  23]    0124: EE                                    out     DX,Al
+[  24]    0125: BA 08 00                              mov     dx,0x08     ;corresponde al puerto a
+[  25]    0128: B0 5B                                 mov     al,0x5b
+[  26]    012A: EE                                    out     DX,al
+[  27]    012B: FE C0                                 inc     al
+[  28]    012D: EB EC                                 jmp     debud
+[  29]        :                                       
+[  30]        :                                       
+[  31]    012F:                                       DELAY1 PROC
+[  32]    012F: B8 64 00                              MOV AX,100
+[  33]    0132: 8B C8                                 MOV CX,AX
+[  34]    0134:                                       CASSS1:
+[  35]    0134: 49                                    DEC CX
+[  36]    0135: 75 FD                                 JNZ CASSS1
+[  37]    0137: C3                                    ret
+[  38]        :                                       DELAY1 ENDP
+[  39]        :                                       end
+[  40]        :                                       
+ 
+===================================================================================================
+ 
+EXE HEADER - bytes from 0000 to 01FF inclusive.
+
+0000: 4D      -   exe signature (M)
+0001: 5A      -   exe signature (Z)
+0002: 38      -   bytes on last page (l.byte)
+0003: 01      -   bytes on last page (h.byte)
+0004: 02      -   512 byte pages in file (l.byte)
+0005: 00      -   512 byte pages in file (h.byte)
+0006: 00      -   relocations (l.byte)
+0007: 00      -   relocations (h.byte)
+0008: 20      -   paragraphs in header (l.byte)
+0009: 00      -   paragraphs in header (h.byte)
+000A: 00      -   minimum memory (l.byte)
+000B: 00      -   minimum memory (h.byte)
+000C: FF      -   maximum memory (l.byte)
+000D: FF      -   maximum memory (h.byte)
+000E: 00      -   SS - stack segment (l.byte)
+000F: 00      -   SS - stack segment (h.byte)
+0010: 00      -   SP - stack pointer (l.byte)
+0011: 01      -   SP - stack pointer (h.byte)
+0012: D6      -   check sum (l.byte)
+0013: 48      -   check sum (h.byte)
+0014: 00      -   IP - instruction pointer (l.byte)
+0015: 00      -   IP - instruction pointer (h.byte)
+0016: 11      -   CS - code segment (l.byte)
+0017: 00      -   CS - code segment (h.byte)
+0018: 1E      -   relocation table adress (l.byte)
+0019: 00      -   relocation table adress (h.byte)
+001A: 00      -   overlay number (l.byte)
+001B: 00      -   overlay number (h.byte)
+001C: 01      -   signature (l.byte)
+001D: 00      -   signature (h.byte)
+001E to 01FF  -   reserved relocation area  (00) 
+
+
+
+
+===================================================================================================
